@@ -7,7 +7,7 @@ public class Department {
     private Vector<Course> courseList; // all courses offered by the department
     private Vector<Student> registerList; // all students taking courses in the department.
 
-
+    //constructor
     public Department(String name, String id) {
         this.name = name;
         this.id = id;
@@ -15,6 +15,7 @@ public class Department {
         this.registerList = new Vector<Student>();
     }
 
+    //getters
     public String getName() {
         return this.name;
     }
@@ -23,10 +24,12 @@ public class Department {
         return this.id;
     }
 
+    //add courses to list
     public void offerCourse(Course course) {
         courseList.add(course);
     }
 
+    //add regestered student and course into lists if not already in list
     public void registerStudentCourseInDepartment(Student s, Course c) {
         if(!this.courseList.contains(c)) {
             this.courseList.add(c);
@@ -36,18 +39,21 @@ public class Department {
         }
     }
 
+    //print list of courses
     public void printCoursesOffered() {
         for (Course c: this.courseList) {
             System.out.println(c.getCode() + " " + c.getNumber());
         }
     }
 
+    //print list of students
     public void printStudentsByName() {
         for (Student s: this.registerList) {
             System.out.println(s.getName());
         }
     }
 
+    //check if student is registered in a specific course
     public boolean isStudentRegistered(Student s) {
         if (this.registerList.contains(s)) {
             return true;
@@ -55,6 +61,7 @@ public class Department {
         return false;
     }
 
+    //gives a list of students registered in a specific course
     public Vector<Student> studentsRegisteredInCourse (int code) {
         Vector<Student> s = new Vector<Student>();
         Course course = new Course();
@@ -66,10 +73,12 @@ public class Department {
         return course.getStudents();
     }
 
+    //print out a list of students registered in a specific course
     public void printStudentsRegisteredInCourse(int code) {
         System.out.println(studentsRegisteredInCourse(code));
     }
 
+    //gives the course with the most student in the department
     public String largestCourse() {
         Course largest = courseList.get(1);
         for (Course c: courseList) {
