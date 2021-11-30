@@ -1,12 +1,13 @@
 import java.util.Vector;
 
 public class Course {
-    private Department dept;
+    private Department dept; // the department the course belongs to
     private String title; // title of the course (e.g. Intro to programming);
     private String code; // course code, e.g. SOFE, ELEE, MANE, etc.
     private int number; // course number, e.g. 1200, 2710, 2800, etc.
     private Vector<Student> classList; // contains all students registered in this course
 
+    //constructors
     public Course() {
     }
 
@@ -18,6 +19,7 @@ public class Course {
         this.classList = new Vector<Student>();
     }
 
+    //getters
     public String getDept() {
         return this.dept.toString();
     }
@@ -30,20 +32,23 @@ public class Course {
         return this.number;
     }
 
+    public Vector<Student> getStudents() {
+        return this.classList;
+    }
+    
+    //adding courses
     public void addStudentToCourse(Student s){
         this.classList.add(s);
     }
 
-    public Vector<Student> getStudents() {
-        return this.classList;
-    }
-
+    //printing students
     public void printStudents() {
         for (Student s: classList){
             System.out.println(s.getName() + ", ");
         }
     }
 
+    //returns the size of the course
     public int courseSize() {
         return classList.size();
     }
