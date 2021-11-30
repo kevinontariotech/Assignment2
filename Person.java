@@ -1,27 +1,22 @@
 public class Person {
-   private String   name;
+      private String   name;
    
    
-   public Person(String initialName)
-   {
-      
-   }
+      public Person(String initialName) {
+         this.name = initialName;
+      }
    
-   public Person()
-   {
-     
-   }
+      public Person() {}
    
-   public void setName( String fullName) {
+      public void setName( String fullName) {
+         this.name = fullName;
+      }
 
-    }
-
-   public String getName() {
-      return null;
-   }
+      public String getName() {
+         return this.name;
+      }
  
-   public String toString() {
-   return null;
-
-   }
+      public String toString() {
+         return this.name;
+      }
 }
