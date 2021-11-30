@@ -1,18 +1,19 @@
 import java.util.Vector;
 
 public class Student extends Person {
-    private String id;
-    private String name;
+    private String id; // id of student
+    private String name; // name of student
     private Vector<Course> courses; // contains all courses the student is registered in
 
 
+    //constructor
     public Student(String stdId, String stdName) {
         this.id = stdId;
         this.name = stdName;
         this.courses = new Vector<Course>();
     }
 
-
+    //getters
     public String getName() {
         return name;
     }
@@ -21,10 +22,12 @@ public class Student extends Person {
         return id;
     }
 
+    //add course to course list
     public void registerFor(Course c){
         this.courses.add(c);
     }
 
+    //check if student is registered in course
     public boolean isRegisteredInCourse(Course c) {
         if (this.courses.contains(c)) {
             return true;
